@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+hashids
+pyyaml
+colorlog
+orator
+pydantic
+psycopg2
+bs4
+pandas
+requests
+tqdm
+html5lib

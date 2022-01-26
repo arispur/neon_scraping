@@ -1,0 +1,76 @@
+env: "development"
+apps:
+  title: "API Scraping Bola.net"
+  version: "1.0.0"
+  description: 'API ini berfungsi untuk melakukan scraping konten berita dari website https://www.bola.net/ untuk mendapatkan informasi judul, penulis, tanggal upload, dan juga isi berita'
+  servers:
+    - url: "http://localhost:8001"
+      description: "localhost"
+    - url: "http://127.0.0.1:8001"
+      description: "local"
+
+allowed_hosts:
+  - "localhost"
+  - "127.0.0.1"
+  - "192.168.14.44"
+  - "ocbcnisp.com"
+
+allow_methods:
+  - "GET"
+  - "POST"
+  - "PUT"
+  - "OPTIONS"
+
+database:
+  development:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "mysecretpassword"
+    db: "example1"
+    schema: "public"
+  staging:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "example"
+    db: "postgres"
+    schema: "public"
+  production:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "example"
+    db: "postgres"
+    schema: "public"
+
+api_token:
+  production:
+    - "production"
+    - "2ZwS5vBtrJdUwZsjqkMJdTLzdrCeEzD8"
+    - "kgzzWjRqTSP3zua2H5k4MCGVTEmBL2Q4"
+    - "rnm4v9zWfp5Rv5jVqAsaefv3Ktx3HyEY"
+    - "uf5eJD3395WR9DMQdbURvC4r9bruSCue"
+    - "Rup67BqTL6gDsr3mxLAYXCAFWyFKbqdP"
+  staging:
+    - "staging"
+    - "twWZ7GKHCDZ2cJ5qm7HQTxycH9N27MSg"
+    - "mWjeUhxRYeR869VeVUrBbNcNyrHTSDUP"
+    - "sSBDFAnw8LccRPpYdQ72DdxUP3E7ntyn"
+    - "DgnMzXcYq8deEmy2HL8eTWBRQttM5MEG"
+    - "np5MgMKPu9Zz9f7HKAgK6gTDhD3L3tmM"
+  development:
+    - "dev"
+    - "pm8tASRPetPcVL5Fx6mgUDKXnzHTFXQv"
+    - "YJsAqgYCAUQvswhqH5kRtcnQ6kCRm93s"
+    - "dHPWJJWUWbxE2CJfkHk2qtCYRC395bLs"
+    - "TYyjWyZM5RBsYM3AMVtXEnPupQn67KAM"
+    - "5HYSSqW6fZsM962ZvBnqT3cFYaqwATyq"
+
+salt_key:
+  production:
+    salt: "production"
+  staging:
+    salt: "staging"
+  development:
+    salt: "development"
