@@ -98,6 +98,16 @@ class ControllerNews(object):
         resp_detail = requests.get(url)
         newsid = hashlib.md5(url.encode())
 
+        if News.where('newsid', '=', newsid.hexdigest()).get().serialize():
+            result = DetailScrapResponse()
+            result.status = 400
+            result.url = url
+            result.message = f"Data existing"
+            Log.info(result.message)
+            message_log = "Time end"
+            Log.time(message_log)
+            return result
+
         if resp_detail.status_code == 200:
             detail_news = BeautifulSoup(resp_detail.text, 'html5lib')
 
