@@ -96,6 +96,7 @@ class ControllerNews(object):
         message_log = "Time start"
         Log.time(message_log)
         resp_detail = requests.get(url)
+        newsid = hashlib.md5(url.encode())
 
         if resp_detail.status_code == 200:
             detail_news = BeautifulSoup(resp_detail.text, 'html5lib')
@@ -127,7 +128,6 @@ class ControllerNews(object):
             except:
                 news_content = ''
 
-            newsid = hashlib.md5(url.encode())
             news_tittle_clean = cls.cleanhtml(str(news_tittle))
             news_time_clean = cls.cleanhtml(str(news_time))
             news_time_clean = datetime.strptime(news_time_clean, '%d-%m-%Y %H:%M')
@@ -140,6 +140,7 @@ class ControllerNews(object):
                 "news_time": news_time_clean,
                 "news_author": news_author_clean,
                 "news_img": news_img,
+                "news_url": url,
                 "news_content": news_content_clean
             }
 

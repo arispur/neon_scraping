@@ -8,6 +8,7 @@ class News(BaseModel):
     news_time: datetime  = None
     news_author: str  = None
     news_img: str  = None
+    news_url: str = None
     news_content: str  = None
 
 class CreateNews(News):
